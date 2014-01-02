@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     @item = Item.create(item_params)
     if @item.save
       flash[:item_created] = "Item Added"
-      render :new
+      redirect_to new_item_path
     else
       render :new
     end
