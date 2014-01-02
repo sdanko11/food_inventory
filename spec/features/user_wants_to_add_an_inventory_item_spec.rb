@@ -44,4 +44,22 @@ feature "Inventory manager adds items to inventory", %q{
     end
   end 
 
+
+   context "Manager visits the add item page, and does not add all require items" do
+  it "exepect to have content" do
+    visit 'items/new'
+
+    fill_in "Name", with: "Special K"
+    fill_in "Description", with: "This is some really good food"
+    fill_in "Quanity", with: "dsfsdfsdf"
+    click_on "Create Item" 
+    save_and_open_page
+
+    expect(page).to have_content("is not a number")
+    expect(page).to have_content("Name")
+    expect(page).to have_content("Description")
+    expect(page).to have_content("Quanity")
+    end
+  end 
+
 end
