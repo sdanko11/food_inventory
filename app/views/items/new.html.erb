@@ -1,0 +1,7 @@
+<%=flash[:item_created] %>
+<%= simple_form_for @item do |f| %>
+  <%= f.input :name, label: 'Name' %><br>
+  <%= f.input :description, label: 'Description' %><br>
+  <%= f.input :quanity, label: 'Quanity' %><br>
+  <%= f.button :submit, label: "Create Item" %>
+<% end %>
